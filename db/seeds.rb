@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Toy.create(name: 'Place Value Manipulatives', age_range: '5-10', image_url: 'https://imgur.com/Iv7SyjZ')
+Toy.create(name: 'Wooden Blocks', age_range: '2-99', image_url: 'https://imgur.com/aYWdUkJ')
+Toy.create(name: 'Pie Face', age_range: '3-99', image_url: 'https://imgur.com/3k6MC5z')
+Toy.create(name: 'Buzz Lightyear', age_range: '2-infinity', image_url: 'https://imgur.com/UvAu9Su')
+Toy.create(name: 'BeatBelle', age_range: '1-4', image_url: 'https://imgur.com/RLjP9hE')
+Toy.create(name: 'Walkie Talkies', age_range: '3-10', image_url: 'https://imgur.com/Wy8to6G')
+Toy.create(name: 'Frozen SingAlong', age_range: '3-8', image_url: 'https://imgur.com/Jk23AQE')
+Toy.create(name: 'Dog Guitar', age_range: '2-6', image_url: 'https://imgur.com/jr9H3BA')
+Toy.create(name: 'Barbie House', age_range: '5-10', image_url: 'https://imgur.com/FMwMstR')
+Toy.create(name: 'Bow and Arrows', age_range: '5-10', image_url: 'https://imgur.com/hwDhmMu')
+Toy.create(name: 'Planet Blocks', age_range: '1-10', image_url: 'https://imgur.com/SVB9i4h')
+Toy.create(name: 'Snap Beads', age_range: '4-10', image_url: 'https://imgur.com/2btnbCi')
+Toy.create(name: 'Candy Land', age_range: '3-99', image_url: 'https://imgur.com/gTy7MeC')
+Toy.create(name: 'Snug as a Bug in a Rug', age_range: '3-99', image_url: 'https://imgur.com/aOxDfup')
+Toy.create(name: 'Circuitry Kit', age_range: '5-99', image_url: 'https://imgur.com/R09sBtE')
+Toy.create(name: 'My First Carcassonne', age_range: '3-99', image_url: 'https://imgur.com/ozkZEQT')
+Toy.create(name: 'Sunny Day Pond', age_range: '3-99', image_url: 'https://imgur.com/GE6pamO')
+Toy.create(name: 'The Fairy Game', age_range: '5-99', image_url: 'https://imgur.com/qL4G13Z')
