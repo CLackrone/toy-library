@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'toys#index'
-  resources :toys
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  scope '/api' do
+    get :toys, to: 'toys#index'
+  end
 end
