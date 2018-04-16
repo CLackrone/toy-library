@@ -9,7 +9,7 @@ export default class Toys extends Component {
     ]
 
     const renderToys = toys.map(toy =>
-      <div key={toy.id} > 
+      <div key={toy.id} className="container text-center" > 
         <p>Toy Name: {toy.name}</p>
         <p>Age Range: {toy.age_range}</p>
         <img src={`${toy.image_url}`} style={{height: '220px', width: '221px', margin: 'auto'}} alt={toy.name} />
@@ -25,4 +25,3 @@ export default class Toys extends Component {
 }
 
 
-//<img src={catPic.url} className="thumbnail responsive" style={{height: '220px', width: '221px', margin: 'auto'}}/>
