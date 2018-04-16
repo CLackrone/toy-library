@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Toys from './components/Toys'
-import Home from './components/Home'
-import NavBar from './components/Navbar'
+import Toys from './Toys'
+import Home from './Home'
+import NavBar from './Navbar'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
