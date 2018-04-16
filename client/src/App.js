@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import Toys from './components/Toys'
+import Home from './components/Home'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Welcome to the Toy Library</h1>
-        <Toys />
-      </div>
+      <Router>
+        <div>
+          <Route exact path='/' component={Home} />
+          <Route exact path="/toys" component={Toys} />
+        </div>
+      </Router>
 
     );
   }

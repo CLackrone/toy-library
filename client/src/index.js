@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import rootReducer from './reducers'
-//4/12 - receiving error 'cannot resolve redux-thunk'
-//import thunk from 'redux-thunk'
 import { createStore, applyMiddleware, compose } from 'redux'
+//import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 
-const store = createStore(rootReducer, 
-  // compose(
-  //   applyMiddleware(thunk), 
-  //   window.devToolsExtension ? window.devToolsExtension() : f => f)
-  )
+import App from './App';
+import rootReducer from './reducers'
+import './index.css'
+
+const store = createStore(
+  rootReducer
+  //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  //applyMiddleware(thunk)
+);
+
 
 
 ReactDOM.render(
