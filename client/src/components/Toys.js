@@ -20,9 +20,6 @@ class Toys extends Component {
 
     const { toys } = this.props
 
-    console.log(toys)
-
-
     const renderToys = toys.map(toy =>
       <div key={toy.id} className="container text-center" > 
         <p>Toy Name: {toy.name}</p>
@@ -41,6 +38,8 @@ class Toys extends Component {
 
 //can now pass in toys payload as state for render()
 const mapStateToProps = state => {
+  console.log('this is your state')
+  console.log(state.toys)
   return { toys: state.toys }
 }
 
