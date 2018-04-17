@@ -1,12 +1,24 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions/toyActions'
 
-export default class Toys extends Component {
+class Toys extends Component {
+
+  componentDidMount() {
+    const { actions } = this.props
+
+    actions.fetchToys()
+  }
+
   render() {
-    const toys = [
-      {"id":9,"name":"Barbie House","age_range":"5-10","image_url":"https://imgur.com/FMwMstR.png","created_at":"2018-04-12T15:51:22.914Z","updated_at":"2018-04-12T15:51:22.914Z"},
-      {"id":5,"name":"BeatBelle","age_range":"1-4","image_url":"https://imgur.com/RLjP9hE.png","created_at":"2018-04-12T15:51:22.905Z","updated_at":"2018-04-12T15:51:22.905Z"},
-      {"id":10,"name":"Bow and Arrows","age_range":"5-10","image_url":"https://imgur.com/hwDhmMu.png","created_at":"2018-04-12T15:51:22.917Z","updated_at":"2018-04-12T15:51:22.917Z"}
-    ]
+    // const toys = [
+    //   {"id":9,"name":"Barbie House","age_range":"5-10","image_url":"https://imgur.com/FMwMstR.png","created_at":"2018-04-12T15:51:22.914Z","updated_at":"2018-04-12T15:51:22.914Z"},
+    //   {"id":5,"name":"BeatBelle","age_range":"1-4","image_url":"https://imgur.com/RLjP9hE.png","created_at":"2018-04-12T15:51:22.905Z","updated_at":"2018-04-12T15:51:22.905Z"},
+    //   {"id":10,"name":"Bow and Arrows","age_range":"5-10","image_url":"https://imgur.com/hwDhmMu.png","created_at":"2018-04-12T15:51:22.917Z","updated_at":"2018-04-12T15:51:22.917Z"}
+    // ]
+
+    const { toys } = this.props
 
     const renderToys = toys.map(toy =>
       <div key={toy.id} className="container text-center" > 
@@ -24,4 +36,14 @@ export default class Toys extends Component {
   }
 }
 
+//can now pass in toys payload as state for render()
+const mapStateToProps = state => {
+  return { toys: state.toys }
+}
 
+//componentDidMount calls this.props.actions.fetchToys()
+const mapDispatchToProps = dispatch => {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Toys)
