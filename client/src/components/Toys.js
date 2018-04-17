@@ -5,7 +5,7 @@ import * as actions from '../actions/toyActions'
 
 class Toys extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
     const { actions } = this.props
 
     actions.fetchToys()
@@ -19,6 +19,9 @@ class Toys extends Component {
     // ]
 
     const { toys } = this.props
+
+    console.log(toys)
+
 
     const renderToys = toys.map(toy =>
       <div key={toy.id} className="container text-center" > 
@@ -45,5 +48,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {actions: bindActionCreators(actions, dispatch)}
 }
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Toys)
