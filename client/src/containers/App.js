@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Toys from '../containerss/ToyList'
+import Toys from '../containers/ToyList'
 import Home from '../components//Home'
 import NavBar from '../components/Navbar'
 import { BrowserRouter as Router, Route } from "react-router-dom";
