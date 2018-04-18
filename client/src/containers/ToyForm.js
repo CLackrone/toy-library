@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addToy } from '../actions/toyActions'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/toyActions'
 
@@ -26,6 +25,9 @@ class ToyForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
 
+    const { actions } = this.props
+
+    actions.createToy(e)
 
   }
 

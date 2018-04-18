@@ -13,6 +13,7 @@ class App extends Component {
           <NavBar />
           <Route exact path='/' component={Home} />
           <Route exact path='/toys' component={Toys} />
+          //refactor to nested route
           <Route exact path='/new' component={ToyForm} />
         </div>
       </Router>

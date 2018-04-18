@@ -10,6 +10,13 @@ const getToys = toys => {
   }
 }
 
+const addToy = toy => {
+  return {
+    type: 'ADD_TOY',
+    toy
+  }
+}
+
 //fetches toys from api 
 //calls dispatch with arg of getToys 
 //getToys receives arg of toys payload
@@ -19,6 +26,10 @@ export const fetchToys = () => {
       .then(res => res.json())
       .then(toys => dispatch(getToys(toys)))
   }
+}
+
+export const createToy = toy => {
+  //in here, your POST method will persist to Rails api
 }
 
 
