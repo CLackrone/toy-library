@@ -3,7 +3,6 @@ export default (state = [], action) => {
     case 'FETCH_TOYS':
       return action.toys
     default: 
-      console.log('returning default state')
       return state
   }
 }

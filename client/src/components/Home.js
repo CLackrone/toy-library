@@ -8,7 +8,7 @@ const Home = () =>
       <p>A great place to keep track of your playroom toys and games</p>
       <img src='https://imgur.com/UvAu9Su.jpg' 
         style={{height: '220px', width: '221px', margin: 'auto'}} 
-        alt='missing-image' />
+        alt='missing' />
         <br></ br>
       <Link to='/toys'>View All Toys</Link>
     </div>
