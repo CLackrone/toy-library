@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import * as actions from '../actions/toyActions'
 import ToyCard from '../components/ToyCard'
 
-class Toys extends Component {
+class ToysPage extends Component {
 
   componentWillMount() {
     const { actions } = this.props
@@ -36,4 +36,4 @@ const mapDispatchToProps = dispatch => {
   return {actions: bindActionCreators(actions, dispatch)}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Toys)
+export default connect(mapStateToProps, mapDispatchToProps)(ToysPage)

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Toys from '../containers/ToyList'
+import ToysPage from '../containers/ToysPage'
 import Home from '../components//Home'
 import NavBar from '../components/Navbar'
 import ToyForm from '../containers/ToyForm'
@@ -12,8 +12,7 @@ class App extends Component {
         <div>
           <NavBar />
           <Route exact path='/' component={Home} />
-          <Route exact path='/toys' component={Toys} />
-          //refactor to nested route
+          <Route exact path='/toys' component={ToysPage} />
           <Route exact path='/new' component={ToyForm} />
         </div>
       </Router>

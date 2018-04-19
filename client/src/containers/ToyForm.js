@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { createToy } from '../actions/toyActions'
+//import { createToy } from '../actions/toyActions'
 import { bindActionCreators } from 'redux'
-//import * as actions from '../actions/toyActions'
+import * as actions from '../actions/toyActions'
 
 class ToyForm extends Component {
   constructor() {
