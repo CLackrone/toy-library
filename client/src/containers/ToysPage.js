@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/toyActions'
-import ToyCard from '../components/ToyCard'
+//import ToyCard from '../components/ToyCard'
+import ToysList from '../components/ToysList'
 
 class ToysPage extends Component {
 
@@ -16,17 +17,19 @@ class ToysPage extends Component {
 
     const { toys } = this.props
 
-    const allToys = toys.map((toy, i) => {
-      return <ToyCard key={i} toy={toy} />
-    })
+    //move this to ToysList
+    // const allToys = toys.map((toy, i) => {
+    //   return <ToyCard key={i} toy={toy} />
+    // })
 
     return(
       <div>
-        { allToys }
+        <ToysList toys={toys} />
       </div>
     )
   }
 }
+
 
 const mapStateToProps = state => {
   return { toys: state.toys }

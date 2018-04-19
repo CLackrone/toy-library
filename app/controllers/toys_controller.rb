@@ -1,4 +1,5 @@
 class ToysController < ApplicationController
+  
   def index
     @toys = Toy.all.order('name ASC')
     render json: @toys
@@ -10,6 +11,7 @@ class ToysController < ApplicationController
       render json: toy
     else
       render json: { message: toy.errors }
+    end
   end
 
   private
@@ -17,4 +19,5 @@ class ToysController < ApplicationController
   def toy_params
     params.permit(:name, :age_range, :image_url, :description, :borrowed)
   end
+
 end
