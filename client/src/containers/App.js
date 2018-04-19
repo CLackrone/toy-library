@@ -14,6 +14,7 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route exact path='/toys' component={ToysPage} />
           <Route exact path='/new' component={ToyForm} />
+          
         </div>
       </Router>
 

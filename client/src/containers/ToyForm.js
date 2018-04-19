@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-//import { createToy } from '../actions/toyActions'
 import { bindActionCreators } from 'redux'
-import * as actions from '../actions/toyActions'
+import { createToy } from '../actions/toyActions'
 
 class ToyForm extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
-      name: '',
-      age_range: '',
-      image_url: '',
-      description: '',
-      borrowed: false
+        name: '',
+        age_range: '',
+        image_url: '',
+        description: '',
+        borrowed: false
     }
   }
 
@@ -27,9 +26,9 @@ class ToyForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
 
-    const { actions } = this.props
+    //const { actions } = this.props
 
-    actions.createToy(e)
+    this.props.createToy(this.state)
 
   }
 
@@ -94,8 +93,9 @@ class ToyForm extends Component {
 
 }
 
-const mapDispatchToProps = dispatch => {
-  return {actions: bindActionCreators(actions, dispatch)}
-}
 
-export default connect(mapDispatchToProps)(ToyForm)
+// const mapDispatchToProps = dispatch => {
+//   return {actions: bindActionCreators({ createToy }, dispatch)}
+// }
+
+export default connect(null, { createToy })(ToyForm)

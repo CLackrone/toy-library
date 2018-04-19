@@ -29,8 +29,18 @@ export const fetchToys = () => {
 }
 
 export const createToy = toy => {
-  //in here, your POST method will persist to Rails api
+  return dispatch => {
+    return fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({toy})
+    })
+      .then(res => res.json())
+      .then(toy => {
+        dispatch(addToy(toy))
+      })
+  }
 }
-
-
 
