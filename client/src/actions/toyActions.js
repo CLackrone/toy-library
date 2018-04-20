@@ -30,12 +30,14 @@ export const fetchToys = () => {
 
 export const createToy = toy => {
   return dispatch => {
+    //fetch not making correct call
     return fetch(url, {
       method: 'POST',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({toy})
+      body: JSON.stringify({toy: toy})
     })
       .then(res => res.json())
       .then(toy => {

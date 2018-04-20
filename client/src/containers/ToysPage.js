@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/toyActions'
-//import ToyCard from '../components/ToyCard'
 import ToysList from '../components/ToysList'
 
 class ToysPage extends Component {

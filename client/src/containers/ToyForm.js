@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { createToy } from '../actions/toyActions'
 
 class ToyForm extends Component {
@@ -92,10 +91,5 @@ class ToyForm extends Component {
   }
 
 }
-
-
-// const mapDispatchToProps = dispatch => {
-//   return {actions: bindActionCreators({ createToy }, dispatch)}
-// }
 
 export default connect(null, { createToy })(ToyForm)
