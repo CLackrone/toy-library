@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route, Redirect } from 'react-router'
 import { connect } from 'react-redux'
 import { createToy } from '../actions/toyActions'
 
@@ -11,7 +12,8 @@ class ToyForm extends Component {
         age_range: '',
         image_url: '',
         description: '',
-        borrowed: false
+        borrowed: false,
+        sendRedirect: false
     }
   }
 
@@ -29,9 +31,12 @@ class ToyForm extends Component {
 
     createToy(this.state)
 
+    this.setState({ sendRedirect: true })
+
   }
 
   render() {
+    const { sendRedirect } = this.state
     return (
       <div>
         <form onSubmit={e => this.handleSubmit(e)}>
@@ -86,6 +91,10 @@ class ToyForm extends Component {
             <input type='submit' />
           </div>
         </form>
+        {sendRedirect && (
+          <Redirect to='/toys' />
+        )}
+        
       </div>
     )
   }
