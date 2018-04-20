@@ -16,11 +16,6 @@ class ToysPage extends Component {
 
     const { toys } = this.props
 
-    //move this to ToysList
-    // const allToys = toys.map((toy, i) => {
-    //   return <ToyCard key={i} toy={toy} />
-    // })
-
     return(
       <div>
         <ToysList toys={toys} />

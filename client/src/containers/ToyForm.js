@@ -25,9 +25,9 @@ class ToyForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
 
-    //const { actions } = this.props
+    const { createToy } = this.props
 
-    this.props.createToy(this.state)
+    createToy(this.state)
 
   }
 
