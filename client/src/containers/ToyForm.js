@@ -18,12 +18,13 @@ class ToyForm extends Component {
   }
 
   handleChange = e => {
+    const { name, value, checked, type } = e.target
+
     this.setState({
-      [e.target.name]: e.target.value
+      [name]: type === 'checkbox' ? checked : value
     })
   }
 
-  //this function should redirect 
   handleSubmit = e => {
     e.preventDefault()
 
