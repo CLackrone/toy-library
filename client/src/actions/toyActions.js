@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-const url = 'api/toys'
+const url = '/api/toys'
 
 //is dispatched in fetchToys() to reducer with type and payload
 const getToys = toys => {
