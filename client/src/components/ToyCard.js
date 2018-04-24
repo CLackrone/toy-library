@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ToyCard = ({ toy }) => 
 
   <div key={toy.id} className='container text-center'>
-    <p>Toy Name: {toy.name}</p>
+    <Link to={`/toys/${toy.id}`}>{toy.name}</Link>    
     <p>Age Range: {toy.age_range}</p>
     <p>Description: {toy.description} </p>
     {toy.image_url? (
