@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/toyActions'
 import ToysList from '../components/ToysList'
-import ToyShow from './ToyShow'
+import ToyShow from '../containers/ToyShow'
 
 class ToysPage extends Component {
 
@@ -22,10 +22,7 @@ class ToysPage extends Component {
     return(
       <div>
         <ToysList toys={toys} />
-        <Route path={`${match.url}/:toyId`} component={ToyShow} />
-        <Route exact path={match.url} render={() => (
-          <h3>Please choose a toy</h3>
-          )} />
+        <Route path={`${match.url}/:toyId`} component={ToyShow}/>
       </div>
     )
   }
@@ -42,13 +39,3 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToysPage)
 
-
-
-// const MoviesPage = ({ match, movies }) => 
-//   <div>
-//     <MoviesList movies={movies} />
-//     <Route path={`${match.url}/:movieId`} component={MovieShow}/>
-//     <Route exact path={match.url} render={() => (
-//       <h3>Please select a Movie from the list.</h3>
-//     )}/>
-//   </div>;
