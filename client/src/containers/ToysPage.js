@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/toyActions'
 import ToysList from '../components/ToysList'
-import ToyShow from './ToyShow'
 
 class ToysPage extends Component {
 
@@ -17,13 +15,11 @@ class ToysPage extends Component {
 //match is a JS object that contains the current url '/toys'
   render() {
 
-    const { toys, match } = this.props
+    const { toys } = this.props
 
     return(
       <div>
         <ToysList toys={toys} />
-        
-        
       </div>
     )
   }
