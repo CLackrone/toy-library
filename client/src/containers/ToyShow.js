@@ -1,19 +1,24 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { connect } from 'react-redux'
 
-const ToyShow = ({toy}) => {
-    console.log({toy})
+class ToyShow extends Component {
 
 
-  return (
-    <div>
-      <h3>Name: {toy.name}</h3>
-    </div>
-  )
+  render() {
+    console.log(this.ownProps)
+
+    const { toy } = this.props
+    console.log(this.props.toyId)
+    return (
+      <div>
+        <h3>Name: {toy.name}</h3>
+      </div>
+    )
+  }
 }
   
 const mapStateToProps = (state, ownProps) => {
-  const toy = state.toys.find(toy => toy.id === ownProps.match.params.toyId)
+  const toy = state.toys.find(toy => toy.id === parseInt(ownProps.match.params.toyId))
 
   if (toy) {
     return { toy }

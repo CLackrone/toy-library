@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from "react-router-dom";
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/toyActions'
 import ToysList from '../components/ToysList'
-import ToyShow from '../containers/ToyShow'
+import ToyShow from './ToyShow'
 
 class ToysPage extends Component {
 
@@ -22,7 +22,8 @@ class ToysPage extends Component {
     return(
       <div>
         <ToysList toys={toys} />
-        <Route path={`${match.url}/:toyId`} component={ToyShow}/>
+        
+        
       </div>
     )
   }
