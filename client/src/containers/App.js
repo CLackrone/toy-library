@@ -4,7 +4,7 @@ import Home from '../components//Home'
 import NavBar from '../components/Navbar'
 import ToyForm from '../containers/ToyForm'
 import ToyShow from './ToyShow'
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -13,9 +13,11 @@ class App extends Component {
         <div>
           <NavBar />
           <Route exact path='/' component={Home} />
-          <Route exact path='/toys' component={ToysPage} />
-          <Route exact path='/toys/:toyId' component={ToyShow} />
-          <Route exact path='/toys/new' component={ToyForm} />
+          <Switch>
+            <Route exact path='/toys' component={ToysPage} />
+            <Route exact path='/toys/new' component={ToyForm} />
+            <Route exact path='/toys/:toyId' component={ToyShow} />
+          </Switch>
         </div>
       </Router>
 

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Home = () =>
+const Home = () => 
+
   <div>
     <div className="container">
       <h1>Welcome to Toy Library</h1>
@@ -13,7 +14,7 @@ const Home = () =>
       <Link to='/toys'>View All Toys</Link>
     </div>
   </div>
-
+  
 export default Home
 
 //add link to ToyForm when generated
