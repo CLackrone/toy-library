@@ -3,12 +3,19 @@ import { connect } from 'react-redux'
 
 class ToyShow extends Component {
 
+  handleOnClick = e => {
+    e.preventDefault()
+
+
+    //deleteToy(id)
+  }
+
+
 
   render() {
-    console.log(this.ownProps)
 
     const { toy } = this.props
-    console.log(this.props.toyId)
+    
     return (
       <div className='container text-center'>
         <h3>Name: {toy.name}</h3>
@@ -22,6 +29,8 @@ class ToyShow extends Component {
         }
         <p>Description: {toy.description}</p>
         <p>Age Range: {toy.age_range}</p>
+        <h1>Hello world</h1>
+        <button onClick={(e) => this.handleOnClick(e)}>Remove Toy</button>
       </div>
     )
   }

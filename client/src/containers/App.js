@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions/toyActions'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+//components
 import ToysPage from '../containers/ToysPage'
 import Home from '../components//Home'
 import NavBar from '../components/Navbar'
 import ToyForm from '../containers/ToyForm'
 import ToyShow from './ToyShow'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
+  componentDidMount() {
+    const { actions } = this.props
+
+    actions.fetchToys()
+  }
+
   render() {
     return (
       <Router>
@@ -25,6 +35,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return { toys: state.toys }
+}
 
+const mapDispatchToProps = dispatch => {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
 
+export default connect(mapStateToProps, mapDispatchToProps)(App)

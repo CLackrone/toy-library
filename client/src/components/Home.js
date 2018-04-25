@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ToysPage from '../containers/ToysPage'
 
 const Home = () => 
 
@@ -11,10 +12,13 @@ const Home = () =>
         style={{height: '220px', width: '221px', margin: 'auto'}} 
         alt='missing' />
         <br></ br>
-      <Link to='/toys'>View All Toys</Link>
+        <Link to='/toys/new'>Add a Toy</Link>
+        <br></br>
     </div>
   </div>
   
 export default Home
 
 //add link to ToyForm when generated
+
+      //<Link to='/toys'>View All Toys</Link>

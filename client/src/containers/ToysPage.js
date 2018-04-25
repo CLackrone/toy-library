@@ -6,7 +6,7 @@ import ToysList from '../components/ToysList'
 
 class ToysPage extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     const { actions } = this.props
 
     actions.fetchToys()
