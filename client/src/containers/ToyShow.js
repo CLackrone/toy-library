@@ -1,21 +1,19 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as actions from '../actions/toyActions'
+//import { bindActionCreators } from 'redux'
+import { deleteToy } from '../actions/toyActions'
 import ToyShowUI from '../components/ToyShowUI'
 
 
 class ToyShow extends Component {
 
-  deleteToy = event => {
+  handleOnClick = toy => {
+    console.log(toy)
 
-    const { actions } = this.props
-    //debugger
-    const toyToDelete = parseInt(this.props.match.params.toyId, 10)
-    actions.deleteToy(toyToDelete)
+
+    // this.props.deleteToy(toyToDelete)
   }
-
-
+  
 
   render() {
 
@@ -23,7 +21,7 @@ class ToyShow extends Component {
 
     return(
       <div>
-        <ToyShowUI toy={toy} />
+        <ToyShowUI toy={toy} handleOnClick={this.handleOnClick} />
       </div>
     )
   }
@@ -39,8 +37,8 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {actions: bindActionCreators(actions, dispatch)}
+const mapDispatchToProps = {
+  deleteToy,
 }
 
-export default connect(mapStateToProps)(ToyShow)
+export default connect(mapStateToProps, mapDispatchToProps)(ToyShow)
