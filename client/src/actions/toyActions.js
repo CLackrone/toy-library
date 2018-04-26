@@ -53,14 +53,14 @@ export const createToy = toy => {
 }
 
 
-export const deleteToy = id => {
+export const deleteToy = toy => {
   return dispatch => {
-    return fetch(url + `/${id}`, {
+    return fetch(url + `/${toy.id}`, {
       method: 'DELETE'
     })
     .then(res => {
       if (res.ok) {
-        dispatch(removeToy(id))
+        dispatch(removeToy(toy.id))
       } else {
         window.alert('Cannot delete toy')
       }

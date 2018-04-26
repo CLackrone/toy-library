@@ -8,10 +8,7 @@ import ToyShowUI from '../components/ToyShowUI'
 class ToyShow extends Component {
 
   handleOnClick = toy => {
-    console.log(toy)
-
-
-    // this.props.deleteToy(toyToDelete)
+    this.props.deleteToy(toy)
   }
   
 
