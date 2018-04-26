@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-//import { bindActionCreators } from 'redux'
 import { deleteToy } from '../actions/toyActions'
 import ToyShowUI from '../components/ToyShowUI'
 

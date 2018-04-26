@@ -6,8 +6,3 @@ Rails.application.routes.draw do
   
 end
 
-
-#scope '/api' do
-    #get :toys, to: 'toys#index'
-    #post :toys, to: 'toys#create'
-  #end
