@@ -4,7 +4,11 @@ export default (state = [], action) => {
       return action.toys
     case 'ADD_TOY':
       return [...state, action.toy]
+    case 'DELETE_TOY':
+      return state.filter(toy => toy.id !== action.id)
     default: 
       return state
   }
 }
+
+

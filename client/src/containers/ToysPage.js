@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/toyActions'
+
 import ToysList from '../components/ToysList'
 
 class ToysPage extends Component {
@@ -12,7 +13,6 @@ class ToysPage extends Component {
     actions.fetchToys()
   }
 
-//match is a JS object that contains the current url '/toys'
   render() {
 
     const { toys } = this.props

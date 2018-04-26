@@ -1,13 +1,18 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../actions/toyActions'
+import ToyShowUI from '../components/ToyShowUI'
+
 
 class ToyShow extends Component {
 
-  handleOnClick = e => {
-    e.preventDefault()
+  deleteToy = event => {
 
-
-    //deleteToy(id)
+    const { actions } = this.props
+    //debugger
+    const toyToDelete = parseInt(this.props.match.params.toyId, 10)
+    actions.deleteToy(toyToDelete)
   }
 
 
@@ -15,22 +20,10 @@ class ToyShow extends Component {
   render() {
 
     const { toy } = this.props
-    
-    return (
-      <div className='container text-center'>
-        <h3>Name: {toy.name}</h3>
-        {toy.image_url? (
-          <img src={`${toy.image_url}`} style={{height: '220px', width: '221px', margin: 'auto'}} alt={toy.name} />
-          ) : (
-            <img src='https://x.kinja-static.com/assets/images/logos/placeholders/default.png'
-              style={{height: '220px', width: '221px', margin: 'auto'}} alt={toy.name}
-              />
-          )
-        }
-        <p>Description: {toy.description}</p>
-        <p>Age Range: {toy.age_range}</p>
-        <h1>Hello world</h1>
-        <button onClick={(e) => this.handleOnClick(e)}>Remove Toy</button>
+
+    return(
+      <div>
+        <ToyShowUI toy={toy} />
       </div>
     )
   }
@@ -44,6 +37,10 @@ const mapStateToProps = (state, ownProps) => {
   } else {
     return {toy: {} }
   }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {actions: bindActionCreators(actions, dispatch)}
 }
 
 export default connect(mapStateToProps)(ToyShow)

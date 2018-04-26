@@ -17,6 +17,13 @@ const addToy = toy => {
   }
 }
 
+const removeToy = id => {
+  return {
+    type: 'DELETE_TOY',
+    id
+  }
+}
+
 //fetches toys from api 
 //calls dispatch with arg of getToys 
 //getToys receives arg of toys payload
@@ -44,4 +51,24 @@ export const createToy = toy => {
       })
   }
 }
+
+
+export const deleteToy = id => {
+  return dispatch => {
+    return fetch(url + `/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => {
+      if (res.ok) {
+        dispatch(removeToy(id))
+      } else {
+        window.alert('Cannot delete toy')
+      }
+    })
+    .catch(error => console.log(error))
+  }
+}
+
+
+
 
