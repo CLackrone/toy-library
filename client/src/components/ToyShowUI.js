@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ToyShowUI = ({ toy, handleOnClick }) => 
+const ToyShowUI = ({ toy, handleOnClick, toggleEdit }) => 
   
     <div className='container text-center'>
       <h3>Name: {toy.name}</h3>
@@ -14,19 +14,11 @@ const ToyShowUI = ({ toy, handleOnClick }) =>
       }
       <p>Description: {toy.description}</p>
       <p>Age Range: {toy.age_range}</p>
-      <button onClick={() => handleOnClick(toy)}>Remove Toy</button>
+      <button onClick={() => handleOnClick(toy)}>Remove Toy</button><br></br>
+      <button onClick={() => toggleEdit()}>Edit Toy</button>
     </div>
   
 
     
 export default ToyShowUI
 
-
-
-// deleteToy = event => {
-
-//     const { actions } = this.props
-//     //debugger
-//     const toyToDelete = parseInt(this.props.match.params.toyId, 10)
-//     actions.deleteToy(toyToDelete)
-//   }
