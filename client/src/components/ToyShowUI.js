@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ToyShowUI = ({ toy, handleDelete, toggleEdit }) => 
   
@@ -15,10 +16,16 @@ const ToyShowUI = ({ toy, handleDelete, toggleEdit }) =>
       <p>Description: {toy.description}</p>
       <p>Age Range: {toy.age_range}</p>
       <button onClick={() => handleDelete(toy)}>Remove Toy</button><br></br>
-      <button onClick={() => toggleEdit(toy)}>Edit Toy</button>
+      <button><Link to={`/toys/${toy.id}/edit`}>Edit</Link><br /> </button>
     </div>
   
 
     
 export default ToyShowUI
 
+//no longer require toggle, doing everything via route params now
+//<button onClick={() => toggleEdit(toy)}>Edit Toy</button>
+
+//if this works, will route to edit form
+
+//<Link to={`/toys/${toy.id}/edit`}>Edit</Link><br /> 

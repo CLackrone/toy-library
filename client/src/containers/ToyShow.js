@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import { deleteToy, updateToy} from '../actions/toyActions'
 import ToyShowUI from '../components/ToyShowUI'
+//import ToyForm from './ToyForm'
 
 
 class ToyShow extends Component {
@@ -12,7 +13,6 @@ class ToyShow extends Component {
     this.state = {
       toy: this.props.toy,
       sendRedirect: false,
-      isEditing: false
     }
   }
 
@@ -21,45 +21,37 @@ class ToyShow extends Component {
     this.setState({ sendRedirect: true })
   }
 
-  toggleEdit = toy => {
-    this.setState({
-      isEditing: !this.state.isEditing
-    })
-  }
+  // toggleEdit = toy => {
+  //   this.setState({
+  //     isEditing: !this.state.isEditing
+  //   })
+  // }
 
-  componentWillReceiveProps(nextProps) {
-    const { toy } = this.props 
-    if (toy.id !== nextProps.toy.id) {
-      this.setState({ toy: nextProps.toy })
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   const { toy } = this.props 
+  //   if (toy.id !== nextProps.toy.id) {
+  //     this.setState({ toy: nextProps.toy })
+  //   }
+  // }
 
-  updateToyState = e => {
-    const name = e.target.name
-    const toy = this.state.toy
-    toy[name] = e.target.value
-    return this.setState({
-      toy: toy
-    })
-  }
+  // updateToyState = e => {
+  //   const name = e.target.name
+  //   const toy = this.state.toy
+  //   toy[name] = e.target.value
+  //   return this.setState({
+  //     toy: toy
+  //   })
+  // }
 
-  saveToy = e => {
-    e.preventDefault()
-    this.props.actions.updateToy(this.state.toy)
-  }
+  // saveToy = e => {
+  //   e.preventDefault()
+  //   this.props.actions.updateToy(this.state.toy)
+  // }
 
   render() {
-    const { sendRedirect, isEditing } = this.state
+    const { sendRedirect } = this.state
 
     const { toy } = this.props
-
-    if (isEditing) {
-      return (
-        <div>
-          <h1>edit toy</h1>
-        </div>
-      )
-    }
 
     return(
       <div>
@@ -91,3 +83,16 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToyShow)
+
+
+// if (isEditing) {
+//   return (
+//     <div>
+//       <h1>edit toy</h1>
+//       <ToyForm
+//         toy={this.state.toy}
+//         onSave={this.saveToy}
+//         onChange={this.updateToyState} />
+//     </div>
+//   )
+// }

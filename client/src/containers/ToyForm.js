@@ -8,13 +8,19 @@ class ToyForm extends Component {
     super(props)
 
     this.state = {
-        name: '',
+        name: 'i am the initial state',
         age_range: '',
         image_url: '',
         description: '',
         sendRedirect: false
     }
   }
+
+  // componentDidMount() {
+  //   this.setState({
+  //     name: this.props.toy.name
+  //   })
+  // }
 
   handleChange = e => {
     const { name, value } = e.target
@@ -37,9 +43,13 @@ class ToyForm extends Component {
 
   render() {
     const { sendRedirect } = this.state
+    const { id } = this.props.toy
+    console.log(this.props.toy.id)
+
     return (
       <div>
         <form onSubmit={e => this.handleSubmit(e)}>
+          
           <div>
             <label>Toy Name: </label>
             <input 
@@ -49,6 +59,7 @@ class ToyForm extends Component {
               value={this.state.name} 
               />
           </div>
+         
           <div>
             <label>Age Range: </label>
             <input
@@ -58,6 +69,7 @@ class ToyForm extends Component {
             value={this.state.age_range} 
             />
           </div>
+          
           <div>
             <label>Image URL: </label>
             <input
@@ -67,6 +79,7 @@ class ToyForm extends Component {
               value={this.state.image_url} 
               />
           </div>
+          
           <div>
             <label>Description: </label>
             <textarea
@@ -76,10 +89,13 @@ class ToyForm extends Component {
               value={this.state.description} 
               />
           </div>
+         
           <div>
             <input type='submit' />
           </div>
+
         </form>
+        
         {sendRedirect && (
           <Redirect to='/toys' />
         )}
@@ -90,7 +106,23 @@ class ToyForm extends Component {
 
 }
 
-export default connect(null, { createToy })(ToyForm)
+const mapStateToProps = (state, ownProps) => {
+
+  const toy = state.toys.find(toy => toy.id === parseInt(ownProps.match.params.toyId, 10))
+
+  if (toy) {
+    console.log('i am your if')
+    return { toy }
+  } else {
+          console.log('i am your else')
+
+    return { 
+      toy: {}
+    }
+  }
+}
+
+export default connect(mapStateToProps, { createToy })(ToyForm)
 
 
 

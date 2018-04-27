@@ -19,6 +19,3 @@ const ToyCard = ({ toy }) =>
   
 export default ToyCard
 
-
-// <p>Age Range: {toy.age_range}</p>
-//     <p>Description: {toy.description} </p>
