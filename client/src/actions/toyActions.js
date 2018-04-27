@@ -17,6 +17,13 @@ const addToy = toy => {
   }
 }
 
+const editToy = toy => {
+  return {
+    type: 'EDIT_TOY',
+    toy
+  }
+}
+
 const removeToy = id => {
   return {
     type: 'DELETE_TOY',
@@ -49,6 +56,26 @@ export const createToy = toy => {
       .then(toy => {
         dispatch(addToy(toy))
       })
+      .catch(error => console.log(error))
+  }
+}
+
+
+export const updateToy = toy => {
+  return dispatch => {
+    return fetch(url + `/${toy.id}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(toy)
+    })
+    .then(res => res.json())
+    .then(toy => {
+      dispatch(editToy(toy))
+    })
+    .catch(error => console.log(error))
   }
 }
 
@@ -59,20 +86,8 @@ export const deleteToy = toy => {
       method: 'DELETE'
     })
     .then(res => {
-      if (res.ok) {
-        dispatch(removeToy(toy.id))
-      } else {
-        window.alert('Cannot delete toy')
-      }
+      dispatch(removeToy(toy.id))
     })
     .catch(error => console.log(error))
   }
 }
-
-export const updateToy = () => {
-  
-}
-
-
-
-
