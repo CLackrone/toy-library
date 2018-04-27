@@ -10,24 +10,30 @@ class ToyShow extends Component {
     super(props)
 
     this.state = {
+      toy: this.props.toy,
       sendRedirect: false,
       isEditing: false
     }
     this.toggleEdit = this.toggleEdit.bind(this)
   }
 
-  handleOnClick = toy => {
+  handleDelete = toy => {
     this.props.deleteToy(toy)
     this.setState({ sendRedirect: true })
   }
 
   toggleEdit() {
-    console.log("I am being fired")
     this.setState({
       isEditing: !this.state.isEditing
     })
   }
-  
+
+  componentWillReceiveProps(nextProps) {
+    const { toy } = this.props 
+    if (toy.id !== nextProps.toy.id) {
+      this.setState({ toy: nextProps.toy })
+    }
+  }
 
   render() {
     const { sendRedirect, isEditing } = this.state
@@ -45,7 +51,7 @@ class ToyShow extends Component {
     return(
       <div>
         <ToyShowUI toy={toy} 
-          handleOnClick={this.handleOnClick}
+          handleOnClick={this.handleDelete}
           toggleEdit={this.toggleEdit} />
         {sendRedirect && (
           <Redirect to='/toys' />
@@ -72,7 +78,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToyShow)
-
-
-
-//this.toggleEdit = this.toggleEdit.bind(this)

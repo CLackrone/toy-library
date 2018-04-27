@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ToyShowUI = ({ toy, handleOnClick, toggleEdit }) => 
+const ToyShowUI = ({ toy, handleDelete, toggleEdit }) => 
   
     <div className='container text-center'>
       <h3>Name: {toy.name}</h3>
@@ -14,7 +14,7 @@ const ToyShowUI = ({ toy, handleOnClick, toggleEdit }) =>
       }
       <p>Description: {toy.description}</p>
       <p>Age Range: {toy.age_range}</p>
-      <button onClick={() => handleOnClick(toy)}>Remove Toy</button><br></br>
+      <button onClick={() => handleDelete(toy)}>Remove Toy</button><br></br>
       <button onClick={() => toggleEdit()}>Edit Toy</button>
     </div>
   
