@@ -35,6 +35,15 @@ class ToyShow extends Component {
     }
   }
 
+  updateToyState = e => {
+    const name = e.target.name
+    const toy = this.state.toy
+    toy[name] = e.target.value
+    return this.setState({
+      toy: toy
+    })
+  }
+
   render() {
     const { sendRedirect, isEditing } = this.state
 
