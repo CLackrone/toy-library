@@ -1,14 +1,22 @@
 class ToysController < ApplicationController
-  before_action :set_toy, only: [:destroy]
+  before_action :set_toy, only: [:destroy, :update]
 
   def index
-    @toys = Toy.all.order('name ASC')
-    render json: @toys
+    toys = Toy.all.order('name ASC')
+    render json: toys
   end
 
   def create
     toy = Toy.new(toy_params)
     if toy.save
+      render json: toy
+    else
+      render json: { message: toy.errors }
+    end
+  end
+
+  def update
+    if @toy.update(toy_params)
       render json: toy
     else
       render json: { message: toy.errors }
