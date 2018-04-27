@@ -69,6 +69,10 @@ export const deleteToy = toy => {
   }
 }
 
+export const updateToy = () => {
+  
+}
+
 
 
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
-import { deleteToy } from '../actions/toyActions'
+import { deleteToy, updateToy} from '../actions/toyActions'
 import ToyShowUI from '../components/ToyShowUI'
 
 
@@ -14,7 +14,7 @@ class ToyShow extends Component {
       sendRedirect: false,
       isEditing: false
     }
-    this.toggleEdit = this.toggleEdit.bind(this)
+    //this.toggleEdit = this.toggleEdit.bind(this)
   }
 
   handleDelete = toy => {
@@ -22,7 +22,7 @@ class ToyShow extends Component {
     this.setState({ sendRedirect: true })
   }
 
-  toggleEdit() {
+  toggleEdit = () => {
     this.setState({
       isEditing: !this.state.isEditing
     })
@@ -44,6 +44,11 @@ class ToyShow extends Component {
     })
   }
 
+  saveToy = e => {
+    e.preventDefault()
+    this.props.actions.updateToy(this.state.toy)
+  }
+
   render() {
     const { sendRedirect, isEditing } = this.state
 
@@ -60,7 +65,7 @@ class ToyShow extends Component {
     return(
       <div>
         <ToyShowUI toy={toy} 
-          handleOnClick={this.handleDelete}
+          handleDelete={this.handleDelete}
           toggleEdit={this.toggleEdit} />
         {sendRedirect && (
           <Redirect to='/toys' />
@@ -83,7 +88,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-  deleteToy,
+  deleteToy, updateToy
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToyShow)
