@@ -12,16 +12,15 @@ class ToyForm extends Component {
         age_range: '',
         image_url: '',
         description: '',
-        borrowed: false,
         sendRedirect: false
     }
   }
 
   handleChange = e => {
-    const { name, value, checked, type } = e.target
+    const { name, value } = e.target
 
     this.setState({
-      [name]: type === 'checkbox' ? checked : value
+      [name]: value
     })
   }
 
@@ -78,17 +77,6 @@ class ToyForm extends Component {
               />
           </div>
           <div>
-            <label>
-              <input 
-                type='checkbox'
-                checked={this.state.borrowed}
-                name='borrowed'
-                onChange={e => this.handleChange(e)}
-              />
-              Borrowed 
-            </label>
-          </div>
-          <div>
             <input type='submit' />
           </div>
         </form>
@@ -103,3 +91,20 @@ class ToyForm extends Component {
 }
 
 export default connect(null, { createToy })(ToyForm)
+
+
+
+
+
+//code for displaying borrowed checkbox
+// <div>
+//   <label>
+//     <input 
+//       type='checkbox'
+//       checked={this.state.borrowed}
+//       name='borrowed'
+//       onChange={e => this.handleChange(e)}
+//     />
+//     Borrowed 
+//   </label>
+// </div>

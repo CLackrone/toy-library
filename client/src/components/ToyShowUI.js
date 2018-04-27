@@ -15,7 +15,7 @@ const ToyShowUI = ({ toy, handleDelete, toggleEdit }) =>
       <p>Description: {toy.description}</p>
       <p>Age Range: {toy.age_range}</p>
       <button onClick={() => handleDelete(toy)}>Remove Toy</button><br></br>
-      <button onClick={() => toggleEdit()}>Edit Toy</button>
+      <button onClick={() => toggleEdit(toy)}>Edit Toy</button>
     </div>
   
 

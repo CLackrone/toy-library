@@ -14,7 +14,6 @@ class ToyShow extends Component {
       sendRedirect: false,
       isEditing: false
     }
-    //this.toggleEdit = this.toggleEdit.bind(this)
   }
 
   handleDelete = toy => {
@@ -22,7 +21,7 @@ class ToyShow extends Component {
     this.setState({ sendRedirect: true })
   }
 
-  toggleEdit = () => {
+  toggleEdit = toy => {
     this.setState({
       isEditing: !this.state.isEditing
     })
