@@ -8,7 +8,7 @@ class ToyForm extends Component {
     super(props)
 
     this.state = {
-        name: 'i am the initial state',
+        name: '',
         age_range: '',
         image_url: '',
         description: '',
@@ -16,6 +16,19 @@ class ToyForm extends Component {
     }
   }
 
+
+
+  // this.state = {
+  //   toy: {
+  //       name: this.props.toy.name || '',
+  //       age_range: '',
+  //       image_url: '',
+  //       description: '',
+  //       sendRedirect: false
+  //     }
+  // }
+
+//this method won't work because it's running after the first call to mapStateToProps, not the second
   // componentDidMount() {
   //   this.setState({
   //     name: this.props.toy.name
@@ -24,7 +37,6 @@ class ToyForm extends Component {
 
   handleChange = e => {
     const { name, value } = e.target
-
     this.setState({
       [name]: value
     })
@@ -32,19 +44,14 @@ class ToyForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-
     const { createToy } = this.props
-
     createToy(this.state)
-
     this.setState({ sendRedirect: true })
-
   }
 
   render() {
     const { sendRedirect } = this.state
-    const { id } = this.props.toy
-    console.log(this.props.toy.id)
+    const { id, name, age_range, image_url, description } = this.props.toy
 
     return (
       <div>
@@ -56,7 +63,7 @@ class ToyForm extends Component {
               type='text' 
               onChange={e => this.handleChange(e)}
               name='name'
-              value={this.state.name} 
+              value={name || this.state.name} 
               />
           </div>
          
@@ -66,7 +73,7 @@ class ToyForm extends Component {
             type='text'
             onChange={e => this.handleChange(e)}
             name='age_range'
-            value={this.state.age_range} 
+            value={age_range || this.state.age_range} 
             />
           </div>
           
@@ -76,7 +83,7 @@ class ToyForm extends Component {
               type='text'
               onChange={e => this.handleChange(e)}
               name='image_url'
-              value={this.state.image_url} 
+              value={image_url || this.state.image_url} 
               />
           </div>
           
@@ -86,7 +93,7 @@ class ToyForm extends Component {
               type='text'
               onChange={e => this.handleChange(e)}
               name='description'
-              value={this.state.description} 
+              value={description || this.state.description} 
               />
           </div>
          
@@ -107,14 +114,16 @@ class ToyForm extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log('ran map')
 
   const toy = state.toys.find(toy => toy.id === parseInt(ownProps.match.params.toyId, 10))
 
   if (toy) {
     console.log('i am your if')
+    console.log(toy)
     return { toy }
   } else {
-          console.log('i am your else')
+    console.log('i am your else')
 
     return { 
       toy: {}

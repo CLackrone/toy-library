@@ -22,10 +22,3 @@ const ToyShowUI = ({ toy, handleDelete, toggleEdit }) =>
 
     
 export default ToyShowUI
-
-//no longer require toggle, doing everything via route params now
-//<button onClick={() => toggleEdit(toy)}>Edit Toy</button>
-
-//if this works, will route to edit form
-
-//<Link to={`/toys/${toy.id}/edit`}>Edit</Link><br /> 

@@ -7,11 +7,11 @@ import ToysList from '../components/ToysList'
 
 class ToysPage extends Component {
 
-  componentDidMount() {
-    const { actions } = this.props
+  // componentDidMount() {
+  //   const { actions } = this.props
 
-    actions.fetchToys()
-  }
+  //   actions.fetchToys()
+  // }
 
   render() {
 
@@ -26,13 +26,13 @@ class ToysPage extends Component {
 }
 
 
-const mapStateToProps = state => {
-  return { toys: state.toys }
-}
+// const mapStateToProps = state => {
+//   return { toys: state.toys }
+// }
 
-const mapDispatchToProps = dispatch => {
-  return {actions: bindActionCreators(actions, dispatch)}
-}
+// const mapDispatchToProps = dispatch => {
+//   return {actions: bindActionCreators(actions, dispatch)}
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ToysPage)
+export default ToysPage
 

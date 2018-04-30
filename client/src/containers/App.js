@@ -11,6 +11,7 @@ import ToyForm from '../containers/ToyForm'
 import ToyShow from './ToyShow'
 
 class App extends Component {
+
   componentDidMount() {
     const { actions } = this.props
 
@@ -24,7 +25,7 @@ class App extends Component {
           <NavBar />
           <Route exact path='/' component={Home} />
           <Switch>
-            <Route exact path='/toys' component={ToysPage} />
+            <Route exact path='/toys' render={(props) => <ToysPage toys={this.props.toys}/>} />
             <Route exact path='/toys/new' component={ToyForm} />
             <Route exact path='/toys/:toyId' component={ToyShow} />
             <Route exact path='/toys/:toyId/edit' component={ToyForm} />
@@ -35,6 +36,8 @@ class App extends Component {
     );
   }
 }
+
+//<Route render={<Component {...props} />} />
 
 const mapStateToProps = state => {
   return { toys: state.toys }

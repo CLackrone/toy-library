@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import { deleteToy, updateToy} from '../actions/toyActions'
 import ToyShowUI from '../components/ToyShowUI'
-//import ToyForm from './ToyForm'
-
 
 class ToyShow extends Component {
   constructor(props) {
@@ -21,33 +19,6 @@ class ToyShow extends Component {
     this.setState({ sendRedirect: true })
   }
 
-  // toggleEdit = toy => {
-  //   this.setState({
-  //     isEditing: !this.state.isEditing
-  //   })
-  // }
-
-  // componentWillReceiveProps(nextProps) {
-  //   const { toy } = this.props 
-  //   if (toy.id !== nextProps.toy.id) {
-  //     this.setState({ toy: nextProps.toy })
-  //   }
-  // }
-
-  // updateToyState = e => {
-  //   const name = e.target.name
-  //   const toy = this.state.toy
-  //   toy[name] = e.target.value
-  //   return this.setState({
-  //     toy: toy
-  //   })
-  // }
-
-  // saveToy = e => {
-  //   e.preventDefault()
-  //   this.props.actions.updateToy(this.state.toy)
-  // }
-
   render() {
     const { sendRedirect } = this.state
 
@@ -56,8 +27,7 @@ class ToyShow extends Component {
     return(
       <div>
         <ToyShowUI toy={toy} 
-          handleDelete={this.handleDelete}
-          toggleEdit={this.toggleEdit} />
+          handleDelete={this.handleDelete} />
         {sendRedirect && (
           <Redirect to='/toys' />
         )}
@@ -96,3 +66,32 @@ export default connect(mapStateToProps, mapDispatchToProps)(ToyShow)
 //     </div>
 //   )
 // }
+
+
+
+  // toggleEdit = toy => {
+  //   this.setState({
+  //     isEditing: !this.state.isEditing
+  //   })
+  // }
+
+  // componentWillReceiveProps(nextProps) {
+  //   const { toy } = this.props 
+  //   if (toy.id !== nextProps.toy.id) {
+  //     this.setState({ toy: nextProps.toy })
+  //   }
+  // }
+
+  // updateToyState = e => {
+  //   const name = e.target.name
+  //   const toy = this.state.toy
+  //   toy[name] = e.target.value
+  //   return this.setState({
+  //     toy: toy
+  //   })
+  // }
+
+  // saveToy = e => {
+  //   e.preventDefault()
+  //   this.props.actions.updateToy(this.state.toy)
+  // }

@@ -19,7 +19,7 @@ const addToy = toy => {
 
 const editToy = toy => {
   return {
-    type: 'EDIT_TOY',
+    type: 'UPDATE_TOY',
     toy
   }
 }
