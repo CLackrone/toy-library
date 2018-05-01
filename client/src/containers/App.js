@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import * as actions from '../actions/toyActions'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //components
-import ToysPage from '../containers/ToysPage'
+import ToysList from '../components/ToysList'
 import Home from '../components//Home'
 import NavBar from '../components/Navbar'
 import ToyForm from '../containers/ToyForm'
@@ -25,7 +25,7 @@ class App extends Component {
           <NavBar />
           <Route exact path='/' component={Home} />
           <Switch>
-            <Route exact path='/toys' render={(props) => <ToysPage toys={this.props.toys}/>} />
+            <Route exact path='/toys' render={(props) => <ToysList toys={this.props.toys}/>} />
             <Route exact path='/toys/new' component={ToyForm} />
             <Route exact path='/toys/:toyId' component={ToyShow} />
             <Route exact path='/toys/:toyId/edit' component={ToyForm} />
