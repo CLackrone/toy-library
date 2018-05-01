@@ -16,25 +16,6 @@ class ToyForm extends Component {
     }
   }
 
-
-
-  // this.state = {
-  //   toy: {
-  //       name: this.props.toy.name || '',
-  //       age_range: '',
-  //       image_url: '',
-  //       description: '',
-  //       sendRedirect: false
-  //     }
-  // }
-
-//this method won't work because it's running after the first call to mapStateToProps, not the second
-  // componentDidMount() {
-  //   this.setState({
-  //     name: this.props.toy.name
-  //   })
-  // }
-
   handleChange = e => {
     const { name, value } = e.target
     this.setState({
@@ -44,8 +25,12 @@ class ToyForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const { createToy } = this.props
-    createToy(this.state)
+    const { createToy, updateToy, id } = this.props
+    if (id) {
+      updateToy(this.state, id)
+    } else {
+      createToy(this.state)
+    }
     this.setState({ sendRedirect: true })
   }
 
@@ -55,7 +40,8 @@ class ToyForm extends Component {
 
     return (
       <div>
-        <form onSubmit={e => this.handleSubmit(e)}>
+
+        <form onSubmit={e => this.handleSubmit(e, id ? id : false)}>
           
           <div>
             <label>Toy Name: </label>
@@ -63,7 +49,7 @@ class ToyForm extends Component {
               type='text' 
               onChange={e => this.handleChange(e)}
               name='name'
-              value={name || this.state.name} 
+              value={name ? name : this.state.name} 
               />
           </div>
          
@@ -73,7 +59,7 @@ class ToyForm extends Component {
             type='text'
             onChange={e => this.handleChange(e)}
             name='age_range'
-            value={age_range || this.state.age_range} 
+            value={age_range ? age_range : this.state.age_range} 
             />
           </div>
           
@@ -83,7 +69,7 @@ class ToyForm extends Component {
               type='text'
               onChange={e => this.handleChange(e)}
               name='image_url'
-              value={image_url || this.state.image_url} 
+              value={image_url ? image_url : this.state.image_url} 
               />
           </div>
           
@@ -93,7 +79,7 @@ class ToyForm extends Component {
               type='text'
               onChange={e => this.handleChange(e)}
               name='description'
-              value={description || this.state.description} 
+              value={description ? description : this.state.description} 
               />
           </div>
          

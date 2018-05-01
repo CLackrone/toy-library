@@ -62,6 +62,7 @@ export const createToy = toy => {
 
 
 export const updateToy = toy => {
+  console.log('updateToy is being called')
   return dispatch => {
     return fetch(url + `/${toy.id}`, {
       method: 'PUT',
