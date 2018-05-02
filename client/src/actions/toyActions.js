@@ -52,7 +52,7 @@ export const fetchToys = () => {
 export const fetchToy = id => {
   return dispatch => {
     fetch(`/api/toys/${id}`)
-      .then(res => console.log(res.json()))
+      .then(res => res.json())
       .then(toy => dispatch(toyFetched(toy)))
   }
 }

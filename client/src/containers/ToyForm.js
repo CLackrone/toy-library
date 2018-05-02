@@ -18,13 +18,22 @@ class ToyForm extends Component {
     }
   }
 
-  componentDidMount = () => {
-  const id = this.props.match.params.toyId
-
-  if (id) {
-    this.props.fetchToy(id)
+  componentWillReceiveProps = nextProps => {
+    this.setState({
+      name: nextProps.toy.name,
+      age_range: nextProps.toy.age_range,
+      image_url: nextProps.toy.image_url,
+      description: nextProps.toy.description
+    })
   }
-}
+
+  componentDidMount = () => {
+    const id = this.props.match.params.toyId
+
+    if (id) {
+      this.props.fetchToy(id)
+    }
+  }
 
   handleChange = e => {
     const { name, value } = e.target
@@ -110,18 +119,12 @@ class ToyForm extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('ran map')
 
   const toy = state.toys.find(toy => toy.id === parseInt(ownProps.match.params.toyId, 10))
 
   if (toy) {
-    console.log('i am your if')
-    console.log(toy)
     return { toy }
   } else {
-    console.log('i am your else')
-    console.log(toy)
-
     return { 
       toy: {}
     }
@@ -129,20 +132,3 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default connect(mapStateToProps, { createToy, fetchToy })(ToyForm)
-
-
-
-
-
-//code for displaying borrowed checkbox
-// <div>
-//   <label>
-//     <input 
-//       type='checkbox'
-//       checked={this.state.borrowed}
-//       name='borrowed'
-//       onChange={e => this.handleChange(e)}
-//     />
-//     Borrowed 
-//   </label>
-// </div>
