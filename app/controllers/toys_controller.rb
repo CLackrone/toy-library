@@ -21,9 +21,9 @@ class ToysController < ApplicationController
 
   def update
     if @toy.update(toy_params)
-      render json: toy
+      render json: @toy
     else
-      render json: { message: toy.errors }
+      render json: { message: @toy.errors }
     end
   end
 

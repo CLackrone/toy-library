@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
-import { createToy, fetchToy } from '../actions/toyActions'
+import { createToy, fetchToy, updateToy } from '../actions/toyActions'
 
 class ToyForm extends Component {
   constructor(props) {
@@ -10,11 +10,12 @@ class ToyForm extends Component {
     const toy = this.props.toy
 
     this.state = {
-        name: toy ? toy.name : '',
-        age_range: toy ? toy.age_range : '',
-        image_url: toy ? toy.image_url : '',
-        description: toy ? toy.description : '',
-        sendRedirect: false
+      id: toy ? toy.id : null, 
+      name: toy ? toy.name : '',
+      age_range: toy ? toy.age_range : '',
+      image_url: toy ? toy.image_url : '',
+      description: toy ? toy.description : '',
+      sendRedirect: false
     }
   }
 
@@ -42,12 +43,19 @@ class ToyForm extends Component {
     })
   }
 
+//creating new toy object no matter what
   handleSubmit = e => {
     e.preventDefault()
-    const { createToy, updateToy, id } = this.props
+    const { createToy, updateToy } = this.props
+    const { id } = this.state
+
     if (id) {
-      updateToy(this.state, id)
+      console.log(id)
+      console.log('firing updateToy')
+      updateToy(this.state)
     } else {
+      console.log(id)
+      console.log('firing createToy')
       createToy(this.state)
     }
     this.setState({ sendRedirect: true })
@@ -131,4 +139,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, { createToy, fetchToy })(ToyForm)
+export default connect(mapStateToProps, { createToy, fetchToy, updateToy })(ToyForm)
