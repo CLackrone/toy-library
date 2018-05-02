@@ -10,6 +10,13 @@ const getToys = toys => {
   }
 }
 
+const toyFetched = toy => {
+  return {
+    type: 'TOY_FETCHED',
+    toy
+  }
+}
+
 const addToy = toy => {
   return {
     type: 'ADD_TOY',
@@ -39,6 +46,14 @@ export const fetchToys = () => {
     return fetch(url)
       .then(res => res.json())
       .then(toys => dispatch(getToys(toys)))
+  }
+}
+
+export const fetchToy = id => {
+  return dispatch => {
+    fetch(`/api/toys/${id}`)
+      .then(res => console.log(res.json()))
+      .then(toy => dispatch(toyFetched(toy)))
   }
 }
 

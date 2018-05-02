@@ -1,20 +1,30 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
-import { createToy } from '../actions/toyActions'
+import { createToy, fetchToy } from '../actions/toyActions'
 
 class ToyForm extends Component {
   constructor(props) {
     super(props)
 
+    const toy = this.props.toy
+
     this.state = {
-        name: '',
-        age_range: '',
-        image_url: '',
-        description: '',
+        name: toy ? toy.name : '',
+        age_range: toy ? toy.age_range : '',
+        image_url: toy ? toy.image_url : '',
+        description: toy ? toy.description : '',
         sendRedirect: false
     }
   }
+
+  componentDidMount = () => {
+  const id = this.props.match.params.toyId
+
+  if (id) {
+    this.props.fetchToy(id)
+  }
+}
 
   handleChange = e => {
     const { name, value } = e.target
@@ -36,7 +46,7 @@ class ToyForm extends Component {
 
   render() {
     const { sendRedirect } = this.state
-    const { id, name, age_range, image_url, description } = this.props.toy
+    const { id } = this.props.toy
 
     return (
       <div>
@@ -49,7 +59,7 @@ class ToyForm extends Component {
               type='text' 
               onChange={e => this.handleChange(e)}
               name='name'
-              value={name ? name : this.state.name} 
+              value={this.state.name} 
               />
           </div>
          
@@ -59,7 +69,7 @@ class ToyForm extends Component {
             type='text'
             onChange={e => this.handleChange(e)}
             name='age_range'
-            value={age_range ? age_range : this.state.age_range} 
+            value={this.state.age_range} 
             />
           </div>
           
@@ -69,7 +79,7 @@ class ToyForm extends Component {
               type='text'
               onChange={e => this.handleChange(e)}
               name='image_url'
-              value={image_url ? image_url : this.state.image_url} 
+              value={this.state.image_url} 
               />
           </div>
           
@@ -79,7 +89,7 @@ class ToyForm extends Component {
               type='text'
               onChange={e => this.handleChange(e)}
               name='description'
-              value={description ? description : this.state.description} 
+              value={this.state.description} 
               />
           </div>
          
@@ -110,6 +120,7 @@ const mapStateToProps = (state, ownProps) => {
     return { toy }
   } else {
     console.log('i am your else')
+    console.log(toy)
 
     return { 
       toy: {}
@@ -117,7 +128,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, { createToy })(ToyForm)
+export default connect(mapStateToProps, { createToy, fetchToy })(ToyForm)
 
 
 
