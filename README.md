@@ -1,24 +1,13 @@
-# README
+# Toy Library
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application allows you to catalog the toys in your child's playroom for that inevitable moment when they say, "I'm bored."
 
-Things you may want to cover:
+## Installation 
 
-* Ruby version
+After forking and cloning the repository, run `bundle install`, `npm install`, and then `rake start`.
 
-* System dependencies
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/clackrone/toy-library. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+This application is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
