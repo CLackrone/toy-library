@@ -60,6 +60,14 @@ class ToyForm extends Component {
     const { sendRedirect } = this.state
     const { id } = this.props.toy
 
+    if (sendRedirect) {
+      return (
+        <div>
+          {id ? <Redirect to={`/toys/${id}`} /> : <Redirect to='/toys' />}
+        </div>
+      )
+    }
+
     return (
       <div className='container text-center'>
 
@@ -110,10 +118,6 @@ class ToyForm extends Component {
           </div>
 
         </form>
-        
-        {sendRedirect && (
-          <Redirect to={`/toys/${id}`} />
-        )}
         
       </div>
     )
