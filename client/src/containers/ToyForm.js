@@ -43,19 +43,14 @@ class ToyForm extends Component {
     })
   }
 
-//creating new toy object no matter what
   handleSubmit = e => {
     e.preventDefault()
     const { createToy, updateToy } = this.props
     const { id } = this.state
 
     if (id) {
-      console.log(id)
-      console.log('firing updateToy')
       updateToy(this.state)
     } else {
-      console.log(id)
-      console.log('firing createToy')
       createToy(this.state)
     }
     this.setState({ sendRedirect: true })
@@ -66,7 +61,7 @@ class ToyForm extends Component {
     const { id } = this.props.toy
 
     return (
-      <div>
+      <div className='container text-center'>
 
         <form onSubmit={e => this.handleSubmit(e, id ? id : false)}>
           
@@ -117,7 +112,7 @@ class ToyForm extends Component {
         </form>
         
         {sendRedirect && (
-          <Redirect to='/toys' />
+          <Redirect to={`/toys/${id}`} />
         )}
         
       </div>

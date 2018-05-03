@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Home = () => 
 
   <div>
-    <div className="container">
+    <div className="container text-center">
       <h1>Welcome to Toy Library</h1>
       <p>A great place to keep track of your playroom toys and games</p>
       <img src='https://imgur.com/UvAu9Su.jpg' 
@@ -19,4 +19,3 @@ const Home = () =>
   
 export default Home
 
-//add link to ToyForm when generated
