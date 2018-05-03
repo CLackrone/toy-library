@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const Home = () => 
 
@@ -11,9 +10,6 @@ const Home = () =>
         style={{height: '220px', width: '221px', margin: 'auto'}} 
         alt='missing' />
         <br></ br>
-        <Link to='/toys'>View All Toys</Link><br></br>
-        <Link to='/toys/new'>Add a Toy</Link>
-        <br></br>
     </div>
   </div>
   
