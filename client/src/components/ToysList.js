@@ -7,8 +7,10 @@ const ToysList = ({ toys }) => {
   )
 
   return (
-    <div>
-      {renderToys}
+    <div className='container-fluid'>
+      <div className='row'>
+        {renderToys}
+      </div>
     </div>
   )
 }

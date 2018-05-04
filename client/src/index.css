@@ -8,6 +8,14 @@ body {
 
 .ToyCard {
   padding-bottom: 25px;
+  border-style: solid;
+  border-width: thin;
+  margin: 10px;
+  border-color: #696969;
+}
+
+.link {
+  color: black;
 }
 
 .btn {
@@ -19,3 +27,4 @@ body {
 .home-image {
   max-width: 60%;
 }
+
