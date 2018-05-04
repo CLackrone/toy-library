@@ -15,3 +15,7 @@ body {
   color: white;
   border: none;
 }
+
+.home-image {
+  max-width: 60%;
+}
