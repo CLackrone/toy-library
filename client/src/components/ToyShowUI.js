@@ -15,10 +15,13 @@ const ToyShowUI = ({ toy, handleDelete, toggleEdit }) =>
       }
       <p>Description: {toy.description}</p>
       <p>Age Range: {toy.age_range}</p>
-      <button onClick={() => handleDelete(toy)}>Remove Toy</button><br></br>
-      <button><Link to={`/toys/${toy.id}/edit`}>Edit</Link><br /> </button>
+      <p><button className='btn btn-primary' onClick={() => handleDelete(toy)}>Remove Toy</button></p>
+      <p><Link className='btn btn-primary' to={`/toys/${toy.id}/edit`}>Edit</Link></p>
     </div>
   
 
     
 export default ToyShowUI
+
+
+//<button type="button" class="btn btn-primary">Primary</button>

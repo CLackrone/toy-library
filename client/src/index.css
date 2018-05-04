@@ -4,3 +4,14 @@ body {
   font-family: sans-serif;
   background-color: lavender;
 }
+
+
+.ToyCard {
+  padding-bottom: 25px;
+}
+
+.btn {
+  background-color: #696969;
+  color: white;
+  border: none;
+}
