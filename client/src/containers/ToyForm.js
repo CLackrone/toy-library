@@ -15,7 +15,7 @@ class ToyForm extends Component {
       age_range: toy ? toy.age_range : '',
       image_url: toy ? toy.image_url : '',
       description: toy ? toy.description : '',
-      sendRedirect: false
+      
     }
   }
 
@@ -50,23 +50,18 @@ class ToyForm extends Component {
 
     if (id) {
       updateToy(this.state)
+      this.props.history.push(`/toys/${id}`)
     } else {
-      createToy(this.state)
+      createToy(this.state, this.props.history)
+      //this.props.history.push('/toys')
     }
-    this.setState({ sendRedirect: true })
+    //this.setState({ sendRedirect: true })
   }
 
   render() {
-    const { sendRedirect } = this.state
     const { id } = this.props.toy
 
-    if (sendRedirect) {
-      return (
-        <div>
-          {id ? <Redirect to={`/toys/${id}`} /> : <Redirect to='/toys' />}
-        </div>
-      )
-    }
+   
 
     return (
       <div className='container text-center'>

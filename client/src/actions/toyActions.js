@@ -57,7 +57,7 @@ export const fetchToy = id => {
   }
 }
 
-export const createToy = toy => {
+export const createToy = (toy, history) => {
   return dispatch => {
     return fetch(url, {
       method: 'POST',
@@ -70,6 +70,7 @@ export const createToy = toy => {
       .then(res => res.json())
       .then(toy => {
         dispatch(addToy(toy))
+        history.push('/toys')
       })
       .catch(error => console.log(error))
   }

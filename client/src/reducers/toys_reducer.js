@@ -21,8 +21,7 @@ export default (state = [], action) => {
       return [...state, action.toy]
 
     case 'UPDATE_TOY':
-      //filter out all toys with an id that does not === the action.id and concat with action.toy
-      return [...state.filter(toy => toy.id !== action.toy.id), action.toy]
+      return state.map(toy => toy.id === action.toy.id ? action.toy : toy)
 
     case 'DELETE_TOY':
       return state.filter(toy => toy.id !== action.id)

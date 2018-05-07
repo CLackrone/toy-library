@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-const ToyCard = ({ toy }) => 
+class ToyCard extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state={
+      count: 0
+    }
+  }
+
+  handleCount = () => {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+
+ 
+ render() {
+  const { toy } = this.props
+
+  return (
     <div key={toy.id} className='col-md-3 ToyCard text-center rounded'>
       <Link className='link' to={`/toys/${toy.id}`}>{toy.name}</Link><br />    
       {toy.image_url? (
@@ -11,7 +31,13 @@ const ToyCard = ({ toy }) =>
             style={{height: '220px', width: '221px', margin: 'auto'}} alt={toy.name}/>
         )
       }
-  </div>
+      <button onClick={() => this.handleCount()}>Like</button>
+      <p>Counter: {this.state.count}</p>
+
+    </div>
+    )
+  }
+}
 
   
 export default ToyCard
