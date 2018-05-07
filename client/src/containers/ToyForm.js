@@ -30,6 +30,7 @@ class ToyForm extends Component {
 
   componentDidMount = () => {
     const id = this.props.match.params.toyId
+    console.log('a')
 
     if (id) {
       this.props.fetchToy(id)
@@ -49,11 +50,13 @@ class ToyForm extends Component {
     const { id } = this.state
 
     if (id) {
+      console.log('b')
       updateToy(this.state)
     } else {
       createToy(this.state)
     }
     this.setState({ sendRedirect: true })
+    console.log('c')
   }
 
   render() {
@@ -61,6 +64,7 @@ class ToyForm extends Component {
     const { id } = this.props.toy
 
     if (sendRedirect) {
+      console.log('d')
       return (
         <div>
           {id ? <Redirect to={`/toys/${id}`} /> : <Redirect to='/toys' />}
@@ -126,6 +130,7 @@ class ToyForm extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log('z')
 
   const toy = state.toys.find(toy => toy.id === parseInt(ownProps.match.params.toyId, 10))
 

@@ -11,6 +11,7 @@ const getToys = toys => {
 }
 
 const toyFetched = toy => {
+  console.log('g')
   return {
     type: 'TOY_FETCHED',
     toy
@@ -25,6 +26,7 @@ const addToy = toy => {
 }
 
 const editToy = toy => {
+  console.log('h')
   return {
     type: 'UPDATE_TOY',
     toy
@@ -50,6 +52,7 @@ export const fetchToys = () => {
 }
 
 export const fetchToy = id => {
+  console.log('e')
   return dispatch => {
     fetch(`/api/toys/${id}`)
       .then(res => res.json())
@@ -77,6 +80,7 @@ export const createToy = toy => {
 
 
 export const updateToy = toy => {
+  console.log('f')
   return dispatch => {
     return fetch(url + `/${toy.id}`, {
       method: 'PUT',
