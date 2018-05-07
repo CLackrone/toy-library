@@ -37,8 +37,6 @@ class App extends Component {
   }
 }
 
-//<Route render={<Component {...props} />} />
-
 const mapStateToProps = state => {
   return { toys: state.toys }
 }

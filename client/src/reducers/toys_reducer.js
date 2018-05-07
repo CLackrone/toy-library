@@ -4,7 +4,6 @@ export default (state = [], action) => {
       return action.toys
 
     case 'TOY_FETCHED':
-    console.log('j')
       const index = state.findIndex(toy => toy.id === action.toy.id)
       if (index > -1) {
         return state.map(toy => {
@@ -22,7 +21,6 @@ export default (state = [], action) => {
       return [...state, action.toy]
 
     case 'UPDATE_TOY':
-    console.log('i')
       //filter out all toys with an id that does not === the action.id and concat with action.toy
       return [...state.filter(toy => toy.id !== action.toy.id), action.toy]
 
