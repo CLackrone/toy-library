@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ToyShowUI = ({ toy, handleDelete, toggleEdit }) => 
+const ToyShowUI = ({ toy, handleDelete }) => 
   
     <div className='container text-center'>
       <h3>Name: {toy.name}</h3>
@@ -24,4 +24,3 @@ const ToyShowUI = ({ toy, handleDelete, toggleEdit }) =>
 export default ToyShowUI
 
 
-//<button type="button" class="btn btn-primary">Primary</button>

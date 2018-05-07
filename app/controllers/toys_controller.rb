@@ -38,7 +38,7 @@ class ToysController < ApplicationController
   private
 
   def toy_params
-    params.permit(:name, :age_range, :image_url, :description, :borrowed)
+    params.permit(:name, :age_range, :image_url, :description, :likes)
   end
 
   def set_toy

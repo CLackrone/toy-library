@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507163602) do
+ActiveRecord::Schema.define(version: 20180507194147) do
 
   create_table "toys", force: :cascade do |t|
     t.string "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180507163602) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
-    t.integer "likes"
+    t.integer "likes", default: 0
   end
 
 end
