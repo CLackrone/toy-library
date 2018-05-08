@@ -31,6 +31,14 @@ const editToy = toy => {
   }
 }
 
+const editToyLikes = toy => {
+  console.log('editToyLikes being fired')
+  return {
+    type: 'UPDATE_TOY_LIKES',
+    toy
+  }
+}
+
 const removeToy = id => {
   return {
     type: 'DELETE_TOY',
@@ -50,6 +58,7 @@ export const fetchToys = () => {
 }
 
 export const fetchToy = id => {
+  console.log('i am being fired')
   return dispatch => {
     fetch(`/api/toys/${id}`)
       .then(res => res.json())
@@ -90,6 +99,26 @@ export const updateToy = toy => {
     .then(res => res.json())
     .then(toy => {
       dispatch(editToy(toy))
+    })
+    .catch(error => console.log(error))
+  }
+}
+
+export const updateToyLikes = toy => {
+  const likedToy = {...toy, likes: toy.likes += 1}
+  console.log(likedToy)
+  return dispatch => {
+    return fetch(url + `/${toy.id}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(likedToy)
+    })
+    .then(res => res.json())
+    .then(toy => {
+      dispatch(editToyLikes(toy))
     })
     .catch(error => console.log(error))
   }
