@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { updateToyLikes } from '../actions/toyActions'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 
 class ToyCard extends Component {
@@ -27,29 +26,11 @@ class ToyCard extends Component {
 
 
         <button onClick={() => this.handleLike(toy)}>Like</button>
-        <p>Counter: {toy.likes}</p>
+        <p>Likes: {toy.likes}</p>
 
       </div>
     )
   }
-
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {actions: bindActionCreators({ updateToyLikes }, dispatch)}
-// }
-
-// const mapStateToProps = state => {
-//   return { toy: state.toy }
-// }
-
-
 export default connect(null, { updateToyLikes })(ToyCard)
-
-
-
-  
-//export default connect(mapStateToProps, {fetchToy, updateToyLikes})(ToyCard)
-
-
-

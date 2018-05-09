@@ -3,9 +3,13 @@ import ToyCard from './ToyCard'
 
 const ToysList = ({ toys }) => {
 
-  // handleLike = e => {
+//sort function to be integrated later
+  const sortedToys = toys.sort((a, b) => {
+      return b.likes - a.likes
+    })
 
-  // }
+//filter function to be integrated later
+  const filteredToys = toys.filter(toy => toy.likes > 10)
 
 
   const renderToys = toys.map((toy, i) => 

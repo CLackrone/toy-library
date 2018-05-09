@@ -32,7 +32,6 @@ const editToy = toy => {
 }
 
 const editToyLikes = toy => {
-  console.log('editToyLikes being fired')
   return {
     type: 'UPDATE_TOY_LIKES',
     toy
@@ -85,7 +84,6 @@ export const createToy = (toy, history) => {
   }
 }
 
-
 export const updateToy = toy => {
   return dispatch => {
     return fetch(url + `/${toy.id}`, {
@@ -105,8 +103,8 @@ export const updateToy = toy => {
 }
 
 export const updateToyLikes = toy => {
-  const likedToy = {...toy, likes: toy.likes += 1}
-  console.log(likedToy)
+  const likedToy = {...toy, likes: toy.likes + 1}
+
   return dispatch => {
     return fetch(url + `/${toy.id}`, {
       method: 'PUT',
@@ -118,7 +116,7 @@ export const updateToyLikes = toy => {
     })
     .then(res => res.json())
     .then(toy => {
-      dispatch(editToyLikes(toy))
+      dispatch(editToy(toy))
     })
     .catch(error => console.log(error))
   }

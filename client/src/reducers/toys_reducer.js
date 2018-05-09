@@ -23,8 +23,8 @@ export default (state = [], action) => {
     case 'UPDATE_TOY':
       return state.map(toy => toy.id === action.toy.id ? action.toy : toy)
 
-    case 'UPDATE_TOY_LIKES': 
-      return state.map(toy => toy.id === action.toy.id ? action.toy : toy)
+    // case 'UPDATE_TOY_LIKES': 
+    //   return state.map(toy => toy.id === action.toy.id ? action.toy : toy)
 
     case 'DELETE_TOY':
       return state.filter(toy => toy.id !== action.id)

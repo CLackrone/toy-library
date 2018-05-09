@@ -15,6 +15,7 @@ const ToyShowUI = ({ toy, handleDelete }) =>
       }
       <p>Description: {toy.description}</p>
       <p>Age Range: {toy.age_range}</p>
+      <p>Likes: {toy.likes}</p>
       <p><button className='btn btn-primary' onClick={() => handleDelete(toy)}>Remove Toy</button></p>
       <p><Link className='btn btn-primary' to={`/toys/${toy.id}/edit`}>Edit</Link></p>
     </div>
